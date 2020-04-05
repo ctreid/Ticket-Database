@@ -1,0 +1,13 @@
+{"movies":[{
+	"Title":"Frozen 2",
+	"costperTicket":11.00,
+	"durationTime": "90 minutes", 
+	"description":"Together with Anna, Kristoff, Olaf and Sven, she'll set out on a dangerous but remarkable journey. In Frozen, Elsa feared her powers were too much for the world. In Frozen II, she must hope they are enough."
+},
+{
+	"Title":"JungleBook",
+	"costperTicket":10.00,
+	"durationTime": "120 minutes", 
+	"description":"The Jungle Book is a live-action/CGI film that tells the story of Mowgli, an orphaned human boy who, guided by his animal guardians, sets out on a journey of self-discovery while evading the threatening Shere Khan. The film introduces Neel Sethi as Mowgli, along with voice and motion capture performances from Ben Kingsley, Bill Murray, Idris Elba, Lupita Nyong'o, Scarlett Johansson, Giancarlo Esposito, and Christopher Walken."
+}
+]}
