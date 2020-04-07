@@ -1,5 +1,7 @@
 package project;
 
+import java.util.ArrayList;
+
 public class Playhouse {
 	private Plays plays;
 	private Users users;
@@ -10,8 +12,15 @@ public class Playhouse {
 	}
 	
 	//Returns true if item is found, and false otherwise
-	public boolean findPlay(String movieName) {
-		return plays.haveMovie(movieName);
+	public boolean findPlay(String playName) {
+		ArrayList<Play> playList = plays.getPlay();
+		for (int i = 0; i < playList.size(); i++) {
+			Play tmp = playList.get(i);
+			if (playName.equalsIgnoreCase(tmp.getTitle())) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public boolean checkout(String playName) {
