@@ -11,6 +11,7 @@ public class Driver {
 		UserInterface us = new UserInterface(choice);
 		MovieInterface m = new MovieInterface();
 		Movies mov = new Movies();
+		Movie movie = new Movie();
 		
 		System.out.println("Welcome to the Ticket Database!" + 
 				"\nAre you a New User (N), Returning User (R), Guest User (G), or Employee (E)?");
@@ -52,11 +53,43 @@ public class Driver {
 				for (int i = 0; i < movies.size(); i++) {
 					System.out.println((i + 1) + ". " + movies.get(i).getTitle());
 				}
+				
 				System.out.println("Which movie would you like to see?");
 				int movieNum = scanner.nextInt();
+				movieNum = movieNum - 1;
 				System.out.println();
 				System.out.println("You have selected: " + movies.get(movieNum).getTitle() + "\n");
-				System.out.println(movies.get(movieNum).getTitle() + "\n" + movies.get(movieNum).getCostPerTicket());
+				System.out.println("Title: " + movies.get(movieNum).getTitle() + "\nCost Per Ticket: " + movies.get(movieNum).getCostPerTicket() + "\nDuration Time: " + 
+						movies.get(movieNum).getDurationTime() + "\nDescription: " + movies.get(movieNum).getDescription());
+				System.out.println("\nHow many tickets would you like to buy for " + movies.get(movieNum).getTitle());
+				int numTickets = scanner.nextInt();
+				
+				if (numTickets <= 0) {
+					System.out.println("Please enter a valid number of tickets: ");
+					numTickets = scanner.nextInt();
+				}
+				
+				System.out.println("Would you like to select your seats? Y or N");
+				String ticketAnswer = scanner.next();
+				
+				if (ticketAnswer.equals("Y")) {
+					movie.displaySeats();
+					String seatSelection[];
+					seatSelection = new String[numTickets];
+					
+					for (int i = 0; i < numTickets; i++) {
+						System.out.println("Enter seat selection " + (i+1) + "(capitalization matters): ");
+						String seat = scanner.next();
+						seatSelection[i] = seat;
+					}
+					
+					System.out.println("Your seats are: " + seatSelection);
+				}
+				
+				else {
+					System.out.println("Please pick out your seat when you arrive to the theater.");
+				}
+				
 			}
 	
 		}
