@@ -12,7 +12,7 @@ public class PlayInterface {
 		Theaters play = Theaters.getInstance();
 		
 		System.out.println("******Your Movie Ticket******");
-		displayMovie();
+		displayPlay();
 		
 		while(addPlay()) {
 			String playTitle = getField("Movie Title");
@@ -24,7 +24,7 @@ public class PlayInterface {
 		}
 		
 		System.out.println("******Your updated play list******");
-		displayMovie();
+		displayPlay();
 		
 		System.out.println("\nHave a good day!");
 	}
