@@ -69,7 +69,6 @@ public class DataLoader extends DataConstant{
 			for(int i = 0; i < movies.size(); i++) {
 				JSONObject movieJson = (JSONObject)movies.get(i);
 				String title  = (String)movieJson.get(MOVIE_TITLE);
-				
 				double costPerTicket = (double)movieJson.get(MOVIE_COST_PER_TICKET);
 				String durationTime  = (String)movieJson.get(MOVIE_DURATION_TIME);
 				String description = (String)movieJson.get(MOVIE_DESCRIPTION);
@@ -88,21 +87,21 @@ public class DataLoader extends DataConstant{
 
 	public static ArrayList<Play> loadPlay() {
 		ArrayList<Play> play = new ArrayList<Play>();
-		
 		try {
 			FileReader reader = new FileReader(PLAY_FILE_NAME);
 			//JSONParser parser = new JSONParser();
-			JSONArray playJSON = (JSONArray)new JSONParser().parse(reader);
+			JSONArray plays = (JSONArray)new JSONParser().parse(reader);
 			
-			for (int i = 0; i < playJSON.size(); i++) {
-				JSONObject playJson = (JSONObject)playJSON.get(i);
-				String title = (String)playJson.get(PLAY_TITLE);
-				int costPerTicket = (int)playJson.get(PLAY_COST_PER_TICKET);
+			for (int i = 0; i < plays.size(); i++) {
+				JSONObject playJson = (JSONObject)plays.get(i);
+				String playTitle = (String)playJson.get(PLAY_TITLE);
+				double costPerTicket = (double)playJson.get(PLAY_COST_PER_TICKET);
 				String description = (String)playJson.get(PLAY_DESCRIPTION);
+				String showTimes = (String)playJson.get(SHOW_TIMES);
 				
-				play.add(new Play(title, costPerTicket, description));
+				play.add(new Play(playTitle, costPerTicket, description, showTimes));
 			}
-			
+			return play;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
