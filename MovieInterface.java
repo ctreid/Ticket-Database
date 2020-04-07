@@ -8,7 +8,7 @@ public class MovieInterface {
 		scanner = new Scanner (System.in);
 	}
 	
-	public void play() {
+	public void movie() {
 		Movies movie = Movies.getInstance();
 		
 		System.out.println("******Your Movie Ticket******");
