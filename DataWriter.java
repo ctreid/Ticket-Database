@@ -74,4 +74,28 @@
 			theaterDetails.put(USER_PASSWORD, theater.getLocation());
 	        return theaterDetails;
 		}
+		
+		public static void savePlay() {
+			Plays play = play.getInstance();
+			JSONArray jsonPlay = new JSONArray();
+			for (int i = 0; i < play.size(); i++) {
+				jsonPlay.add(getPlayJSON(play.get(i)));
+			}
+
+			try(FileWriter file = new FileWriter(PLAY_FILE_NAME)){
+				file.write(jsonPlay.toJSONString())
+				file.flush();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	
+		public static JSONObject getPlayJSON(Play play) {
+			JSONObject playDetails = new JSONObject();
+			playDetails.put(PLAY_TITLE, play.getTitle());
+			playDetails.put(PLAY_COST_PER_TICKET, play.getCostPerTicket());
+			playDetails.put(PLAY_DESCRIPTION, play.getDescription());
+			return playDetails;
+		
+		}
 	}
