@@ -1,12 +1,10 @@
-package project;
 import java.util.ArrayList;
-
 public class Users {
-	private static Users users;
-	private ArrayList<User> userList;
+	private static Users users = null;
+	private static ArrayList<User> userList = new ArrayList<User>();
 	
 	private Users() {
-		userList = Database.getUsers();
+		userList = DataLoader.loadUser();
 	}
 	
 	public static Users getInstance() {
@@ -15,5 +13,14 @@ public class Users {
 		}
 		
 		return users;
+	}
+	
+	public ArrayList<User> getUser() {
+		return userList;
+	}
+	
+	public void addUser(String userName, String password) {
+		userList.add(new User(userName, password));
+		DataWriter.saveUser();
 	}
 }
