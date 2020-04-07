@@ -97,7 +97,7 @@ public class PlayhouseUI {
 		System.out.println("Your play was successfully checked out\n");
 	}
 	
-	private void ratePaly() {
+	private void ratePlay() {
 		System.out.println("\n-----Searching the Theater-----");
 		String play = getUserPlay();
 		
