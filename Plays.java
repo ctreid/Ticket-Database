@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Plays {
 	private static Plays plays = null;
-	private static ArrayList<Play> playList = new ArrayList<Play>();
+	public static ArrayList<Play> playList = new ArrayList<Play>();
 	
-	private Plays() {
+	public Plays() {
 		playList = DataLoader.loadPlay();
 	}
 	
@@ -20,7 +20,8 @@ public class Plays {
 		return playList;
 	}
 	
-	public void addPlay(String title /*to do*/) {
-		//to do
+	public void addPlay(String title, double costPerTicket,  String description, String showTimes) {
+		playList.add(new Play(title, costPerTicket, description, showTimes));
+		DataWriter.savePlay();
 	}
 }
