@@ -84,4 +84,28 @@ public class DataLoader extends DataConstant{
 		
 		return null;
 	}
+	public static ArrayList<Play> loadPlay() {
+		ArrayList<Play> play = new ArrayList<Play>();
+		
+		try {
+			FileReader reader = new FileReader(PLAY_FILE_NAME);
+			//JSONParser parser = new JSONParser();
+			JSONArray playJSON = (JSONArray)new JSONParser().parse(reader);
+			
+			for (int i = 0; i < playJSON.size(); i++) {
+				JSONObject playJson = (JSONObject)playJSON.get(i);
+				String title = (String)playJson.get(PLAY_TITLE);
+				int costPerTicket = (int)playJson.get(PLAY_COST_PER_TICKET);
+				String description = (String)playJson.get(PLAY_DESCRIPTION);
+				
+				play.add(new Play(title, costPerTicket, description));
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }
