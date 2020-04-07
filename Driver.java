@@ -45,7 +45,9 @@ public class Driver {
 		if (type == 1) {
 			System.out.println("You have selected movie");
 			if (us.getUserChoice().equals("E")) {
-					m.addMovie();
+				System.out.println("Adding movie information...");
+				System.out.println("");
+				//mov.addMovie();
 			}
 			else {
 				System.out.println("Here are the current movies: ");
@@ -72,10 +74,11 @@ public class Driver {
 				System.out.println("Would you like to select your seats? Y or N");
 				String ticketAnswer = scanner.next();
 				
+				String seatSelection[];
+				seatSelection = new String[numTickets];
+				
 				if (ticketAnswer.equals("Y")) {
 					movie.displaySeats();
-					String seatSelection[];
-					seatSelection = new String[numTickets];
 					
 					for (int i = 0; i < numTickets; i++) {
 						System.out.println("Enter seat selection " + (i+1) + "(capitalization matters): ");
@@ -88,6 +91,18 @@ public class Driver {
 				
 				else {
 					System.out.println("Please pick out your seat when you arrive to the theater.");
+				}
+				
+				System.out.println();
+				printTicket(movies.get(movieNum).getTitle(), seatSelection, movies.get(movieNum).getDurationTime());
+				System.out.println();
+				
+				System.out.println();
+				
+				System.out.println("\nThank you for using Ticket Database! We hope you enjoyed your movie! \nWould you like to leave a review? Y or N: ");
+				String reviewChoice = scanner.next();
+				if (reviewChoice.equals("Y")) {
+					
 				}
 				
 			}
@@ -112,6 +127,25 @@ public class Driver {
 		else if (type == 3) {
 			System.out.println("Feature coming soon");
 		}
+		
+		else {
+			System.out.println("Please enter 1, 2, or 3: ");
+			type = scanner.nextInt();
+		}
+	}
+	
+	public static void afterMovie() {
+		System.out.println("Thank you for choosing Ticket Database! Would you like to leave a review?");
+	}
+	
+	public static void printTicket(String movie, String[] seats, String duration) {
+		System.out.println();
+		System.out.println("******************************");
+		System.out.println("* Movie: " + movie);
+		System.out.println("* Seats: " + seats);
+		System.out.println("* Movie Length: " + duration);
+		System.out.println("******************************");
+		System.out.println();
 	}
 	
 	public static void main (String [] args) {
