@@ -5,6 +5,8 @@ public class Movie {
 	private String description;
 	private int numTickets;
 	private String seats;
+	private String reviews;
+	private String ratings;
 	
 	public Movie(int numTickets, String seats) {
 		this.numTickets = numTickets;
@@ -16,6 +18,15 @@ public class Movie {
 		this.costPerTicket = costPerTicket;
 		this.durationTime = durationTime;
 		this.description = descrption;	
+	}
+	
+	public Movie(String reviews, String ratings) {
+		this.reviews = reviews;
+		this.ratings = ratings;
+	}
+	
+	public Movie() {
+		
 	}
 	
 	public String getTitle() {
@@ -55,11 +66,11 @@ public class Movie {
 		this.description = description;
 	}
 	
-	public String displaySeats() {
-		return "a b c d e f g h i j k l m" 
+	public void displaySeats() {
+		System.out.println( " a b c d e f g h i j k l m" 
 				+ "\n n o p q r s t u v w x y z" 
 				+ "\n A B C D E F G H I J K L M"
-				+ "\n N O P Q R S T U V W X Y Z";
+				+ "\n N O P Q R S T U V W X Y Z");
 	}
 	
 	public int getNumTickets () {
@@ -76,6 +87,22 @@ public class Movie {
 	
 	public void setSeats (String seats) {
 		this.seats = seats;
+	}
+	
+	public String getReviews() {
+		return reviews;
+	}
+	
+	public void setReviews(String reviews) {
+		this.reviews = reviews;
+	}
+	
+	public String getRatings() {
+		return ratings;
+	}
+	
+	public void setRatings(String ratings) {
+		this.ratings = ratings;
 	}
 	
 }
