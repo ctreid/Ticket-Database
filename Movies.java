@@ -39,6 +39,10 @@ public class Movies {
 		return movies;
 	}
 	
+	public boolean haveMovie(String movieNamee) {
+		return true;
+	}
+	
 	public ArrayList<Movie> getMovie() {
 		return movieList;
 	}
