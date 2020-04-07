@@ -1,23 +1,38 @@
+package project;
+
 public class Theater {
-	private String name;
-	private String location;
+	private Movies movies;
+	private Users users;
 	
-	public Theater(String name, String location) {
-		this.name = name;
-		this.location = location;
-	}
-	public String getLocation() {
-		return location;
+	public Theater() {
+		movies = Movies.getInstance();
+		users = Users.getInstance();
 	}
 	
-	public void setLocation(String userName) {
-		this.location = userName;
+	//Returns true if item is found, and false otherwise
+	public boolean findMovie(String movieName) {
+		return movies.haveMovie(movieName);
 	}
 	
-	public String getName() {
-		return name;
+	public boolean checkout(String movieName) {
+		if(!findMovie(movieName))return false;
+		
+		//checkout the item
+		//need a user then have them checkout an item
+		return true;
 	}
-	public void setName(String name) {
-		this.name = name;
+	
+	public boolean rateMovie(String movieName, int rating) {
+		if(!findMovie(movieName))return false;
+		
+		if(rating < 0 || rating > 5) return false;
+		
+		return true;
+	}
+	
+	public boolean payFine(int amount) {
+		if(amount < 0) return false;
+		
+		return true; 	//successfully paid fine
 	}
 }
