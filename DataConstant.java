@@ -16,4 +16,10 @@ public abstract class DataConstant {
 	protected static final String MOVIE_COST_PER_TICKET = "costperTicket";
 	protected static final String MOVIE_DURATION_TIME = "durationTime";
 	protected static final String MOVIE_DESCRIPTION = "description";
+	
+	protected static final String PLAY_FILE_NAME = "src/play.json";
+	protected static final String PLAY = "play";
+	protected static final String PLAY_TITLE = "playTitle";
+	protected static final String PLAY_COST_PER_TICKET = "costPerTicket";
+	protected static final String PLAY_DESCRIPTION = "description";
 }
