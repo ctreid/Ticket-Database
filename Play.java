@@ -1,13 +1,19 @@
 
 public class Play {
 	private String title; 
-	private int costPerTicket;
+	private double costPerTicket;
 	private String description;
+	private String showTimes;
 	
-	public Play(String title, int costPerTicket, String description) {
+	public Play(String title, double costPerTicket, String description, String showTimes) {
 		this.title = title;
 		this.costPerTicket = costPerTicket;
 		this.description = description;
+		this.showTimes = showTimes;
+	}
+	
+	public Play() {
+		
 	}
 	
 	public String getTitle() {
@@ -18,11 +24,11 @@ public class Play {
 		this.title = userTitle;
 	}
 	
-	public int getCostPerTicket() {
+	public double getCostPerTicket() {
 		return costPerTicket;
 	}
 	
-	public void setCostPerTicket(int costperTicket) {
+	public void setCostPerTicket(double costperTicket) {
 		if(this.costPerTicket > 0) {
 			this.costPerTicket = costperTicket;
 		}
@@ -37,6 +43,14 @@ public class Play {
 	
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public String getShowTimes() {
+		return showTimes;
+	}
+	
+	public void setShowTimes(String showTimes) {
+		this.showTimes = showTimes;
 	}
 	
 	
