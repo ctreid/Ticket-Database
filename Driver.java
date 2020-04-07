@@ -62,7 +62,7 @@ public class Driver {
 				
 				mov.addMovie(title, costPerTicket, durationTime, description);
 				
-				System.out.println("Thank you");
+				System.out.println("Thank you. " + title + " has been added.");
 			}
 			else {
 				System.out.println("Here are the current movies: ");
@@ -160,10 +160,7 @@ public class Driver {
 					plays.addPlay(playTitle, costPerTicket, description, showTimes);
 					
 					
-					System.out.println("Thank you");
-					
-					
-					System.out.println(plays.getPlay());
+					System.out.println("Thank you. " + playTitle + " has been added.");
 					
 				}
 			}
