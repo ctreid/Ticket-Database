@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TheaterInterface {
+public class PlayInterface {
 	private Scanner scanner;
 	
-	public TheaterInterface() {
+	public PlayInterface() {
 		scanner = new Scanner (System.in);
 	}
 	
@@ -42,13 +42,13 @@ public class TheaterInterface {
 		if(input.toLowerCase().trim().equals("y"))return true;
 		return false;
 	}
-	public void displayMovie() {
-		Theaters play = Theaters.getInstance();
-		ArrayList<Movie> films = play.getPlay();
+	public void displayPlay() {
+		Plays play = Plays.getInstance();
+		ArrayList<Play> plays = play.getPlay();
 		
-		for(Movie m : films) {
-			System.out.println(m.getTitle() + " " + m.getCostPerTicket() + " " + 
-					m.getDurationTime() + " " +  m.getDescription());
+		for(Play p : plays) {
+			System.out.println(p.getTitle() + " " + p.getCostPerTicket() + " " + 
+					" " +  p.getDescription());
 		}
 	}
 }
