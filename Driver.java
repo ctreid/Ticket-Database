@@ -12,6 +12,8 @@ public class Driver {
 		MovieInterface m = new MovieInterface();
 		Movies mov = new Movies();
 		Movie movie = new Movie();
+		Play play = new Play();
+		Plays plays = new Plays();
 		
 		System.out.println("Welcome to the Ticket Database!" + 
 				"\nAre you a New User (N), Returning User (R), Guest User (G), or Employee (E)?");
@@ -38,16 +40,29 @@ public class Driver {
 		
 		us.displayUser();
 		
-		System.out.println("Would you like to buy tickets to a "+
+		System.out.println("Would you like to view: "+
 				"\n1. Movie \n2. Play \n3. Concert");
 		int type = scanner.nextInt();
 		
 		if (type == 1) {
 			System.out.println("You have selected movie");
 			if (us.getUserChoice().equals("E")) {
+				
 				System.out.println("Adding movie information...");
-				System.out.println("");
-				//mov.addMovie();
+				System.out.println("Please enter the movie title: ");
+				String title = scanner.nextLine();
+				scanner.nextLine();
+				System.out.println("Please enter the cost per ticket: ");
+				double costPerTicket = scanner.nextDouble();
+				System.out.println("Please enter the length of the movie: ");
+				String durationTime = scanner.next();
+				System.out.println("Please enter the movies description: ");
+				String description = scanner.nextLine();
+				scanner.nextLine();
+				
+				mov.addMovie(title, costPerTicket, durationTime, description);
+				
+				System.out.println("Thank you");
 			}
 			else {
 				System.out.println("Here are the current movies: ");
@@ -71,6 +86,8 @@ public class Driver {
 					numTickets = scanner.nextInt();
 				}
 				
+				double price = numTickets * movies.get(movieNum).getCostPerTicket();
+				
 				System.out.println("Would you like to select your seats? Y or N");
 				String ticketAnswer = scanner.next();
 				
@@ -82,11 +99,13 @@ public class Driver {
 					
 					for (int i = 0; i < numTickets; i++) {
 						System.out.println("Enter seat selection " + (i+1) + "(capitalization matters): ");
-						String seat = scanner.next();
-						seatSelection[i] = seat;
+						seatSelection[i] = scanner.next();
 					}
 					
-					System.out.println("Your seats are: " + seatSelection);
+					System.out.println("Your seats are: ");
+					for(int i = 0; i < numTickets; i++) {
+						System.out.print(seatSelection[i] + " ");
+					}
 				}
 				
 				else {
@@ -94,7 +113,7 @@ public class Driver {
 				}
 				
 				System.out.println();
-				printTicket(movies.get(movieNum).getTitle(), seatSelection, movies.get(movieNum).getDurationTime());
+				printMovieTicket(movies.get(movieNum).getTitle(), seatSelection, movies.get(movieNum).getDurationTime() , price);
 				System.out.println();
 				
 				System.out.println();
@@ -102,7 +121,17 @@ public class Driver {
 				System.out.println("\nThank you for using Ticket Database! We hope you enjoyed your movie! \nWould you like to leave a review? Y or N: ");
 				String reviewChoice = scanner.next();
 				if (reviewChoice.equals("Y")) {
-					
+					System.out.println("Please enter your review: ");
+					String review = scanner.next();
+					movie.setReviews(review);
+					System.out.println("Please enter your rating (in *****): ");
+					String rating = scanner.nextLine();
+					scanner.nextLine();
+					movie.setRatings(rating);
+					System.out.println("Have a good day!");
+				}
+				else {
+					System.out.println("Have a good day!");
 				}
 				
 			}
@@ -113,14 +142,38 @@ public class Driver {
 			System.out.println("You have selected play");
 			if (us.getUserChoice().equals("E")) {
 				System.out.println("Would you like to add a play? Y/N: ");
-				String employeeAdd = scanner.nextLine();
+				String employeeAdd = scanner.next();
+				//scanner.nextLine();
 				if (employeeAdd.equals("Y")) {
-					//add a play
+					System.out.println("Adding play information...");
+					System.out.println("Please enter the play title: ");
+					String playTitle = scanner.nextLine();
+					scanner.nextLine();
+					System.out.println("Please enter the cost per ticket: ");
+					double costPerTicket = scanner.nextDouble();
+					System.out.println("Please enter the plays description: ");
+					String description = scanner.nextLine();
+					scanner.nextLine();
+					System.out.println("Please enter the show times: ");
+					String showTimes = scanner.nextLine();
+					
+					plays.addPlay(playTitle, costPerTicket, description, showTimes);
+					
+					
+					System.out.println("Thank you");
+					
+					
+					System.out.println(plays.getPlay());
+					
 				}
 			}
+			
 			else {
 				System.out.println("Here are the current plays: ");
-				//display the plays
+				ArrayList<Play> p = plays.getPlay();
+				for (int i = 0; i < p.size(); i++) {
+					System.out.println((i + 1) + ". " + p.get(i).getTitle());
+				}
 			}
 		}
 		
@@ -138,20 +191,25 @@ public class Driver {
 		System.out.println("Thank you for choosing Ticket Database! Would you like to leave a review?");
 	}
 	
-	public static void printTicket(String movie, String[] seats, String duration) {
+	public static void printMovieTicket(String movie, String[] seats, String duration, double price) {
 		System.out.println();
 		System.out.println("******************************");
 		System.out.println("* Movie: " + movie);
-		System.out.println("* Seats: " + seats);
+		System.out.print("* Seats: ");
+		for (int i = 0; i < seats.length; i++) {
+			System.out.print(seats[i] + " ");
+		}
+		System.out.println();
 		System.out.println("* Movie Length: " + duration);
+		System.out.println("* Price: $" + price);
 		System.out.println("******************************");
 		System.out.println();
 	}
 	
+	
+	
 	public static void main (String [] args) {
 		text();
-		
-		
 		
 	}
 	
