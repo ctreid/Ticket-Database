@@ -23,7 +23,7 @@ public class Playhouse {
 	}
 	
 	public boolean ratePlay(String playName, int rating) {
-		if(!findPlay(playeName))return false;
+		if(!findPlay(playName))return false;
 		
 		if(rating < 0 || rating > 5) return false;
 		
