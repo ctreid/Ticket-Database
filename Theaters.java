@@ -3,7 +3,7 @@ public class Theaters {
 	private static Theaters theaters = null;
 	private static ArrayList<Theater> theaterList = new ArrayList<Theater>();
 	
-	private Theaters() {
+	public Theaters() {
 		theaterList = DataLoader.loadTheater();
 	}
 	
