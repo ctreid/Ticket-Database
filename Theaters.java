@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class Theaters {
 	private static Theaters theaters = null;
-	private static ArrayList<Theater> theaterList = new ArrayList<Theater>();
+	public static ArrayList<Theater> theaterList = new ArrayList<Theater>();
 	
 	public Theaters() {
 		theaterList = DataLoader.loadTheater();
