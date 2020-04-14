@@ -37,7 +37,7 @@ public class DataLoader extends DataConstant{
 		ArrayList<Theater> theater = new ArrayList<Theater>();
 		
 		try {
-			FileReader reader = new FileReader(USER_FILE_NAME);
+			FileReader reader = new FileReader(THEATER_FILE_NAME);
 			//JSONParser parser = new JSONParser();
 			JSONArray theaterJson = (JSONArray)new JSONParser().parse(reader);
 		
